@@ -2,9 +2,17 @@
     "require": {
         "xiag/rql-parser": "^2.0"
     },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
     "autoload": {
         "psr-4": {
             "MyRqlParserEx\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MyRqlParserEx\\Test\\": "test/"
         }
     }
 }
