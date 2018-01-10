@@ -360,10 +360,10 @@ class ParserTest extends \PHPUnit_Framework_TestCase
                 sprintf('Unexpected token "%s" (%s) at position %d', '1', 'T_INTEGER', 0),
             ],
 
-            'unknown typecaster' => [
-                'eq(field,unknown:value)',
-                sprintf('Unknown type "%s"', 'unknown'),
-            ],
+//            'unknown typecaster' => [
+//                'eq(field,unknown:value)',
+//                sprintf('Unknown type "%s"', 'unknown'),
+//            ],
 
             'mix group operators 1' => [
                 '(a=b|c=d&e=f)',
