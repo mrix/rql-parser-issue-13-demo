@@ -789,6 +789,39 @@ class LexerTest extends \PHPUnit_Framework_TestCase
                     [')', Token::T_CLOSE_PARENTHESIS],
                 ],
             ],
+            'simple special chars' => [
+                'eq(name.sub_name.sub-sub_name,value.sub_value.sub-sub_value.$ref)',
+                [
+                    ['eq', Token::T_OPERATOR],
+                    ['(', Token::T_OPEN_PARENTHESIS],
+                    ['name.sub_name.sub-sub_name', Token::T_STRING],
+                    [',', Token::T_COMMA],
+                    ['value.sub_value.sub-sub_value.$ref', Token::T_STRING],
+                    [')', Token::T_CLOSE_PARENTHESIS],
+                ],
+            ],
+            'extref eq filter' => [
+                'eq(value.with_array..$ref,https://grv-url.dot.com/end_point/1462064e-8e44-4c7e-bd30-ee2fda66a237)',
+                [
+                    ['eq', Token::T_OPERATOR],
+                    ['(', Token::T_OPEN_PARENTHESIS],
+                    ['value.with_array..$ref', Token::T_STRING],
+                    [',', Token::T_COMMA],
+                    ['https://grv-url.dot.com/end_point/1462064e-8e44-4c7e-bd30-ee2fda66a237', Token::T_STRING],
+                    [')', Token::T_CLOSE_PARENTHESIS],
+                ],
+            ],
+            'extref like filter' => [
+                'like(value.with_array..$ref,https://grv-url.dot.com/end_point/*)',
+                [
+                    ['like', Token::T_OPERATOR],
+                    ['(', Token::T_OPEN_PARENTHESIS],
+                    ['value.with_array..$ref', Token::T_STRING],
+                    [',', Token::T_COMMA],
+                    ['https://grv-url.dot.com/end_point/*', Token::T_GLOB],
+                    [')', Token::T_CLOSE_PARENTHESIS],
+                ],
+            ],
         ];
     }
 
